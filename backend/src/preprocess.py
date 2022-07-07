@@ -1,3 +1,7 @@
+"""
+This script contains useful methods for pre-processing text.
+"""
+
 import nltk
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem import WordNetLemmatizer,PorterStemmer
@@ -6,13 +10,26 @@ import re
 lemmatizer = WordNetLemmatizer()
 stemmer = PorterStemmer() 
 
-def preprocess_string(sentence):
-    sentence=str(sentence)
-    sentence = sentence.lower()
-    sentence=sentence.replace('{html}',"") 
+def preprocess_string(sentences: list[str]):
+    """ Processes a list of sentences into a dict of word:freq pairs
+
+    Parameters
+    ----------
+    file_loc : str
+        The file location of the spreadsheet
+    
+    Returns
+    -------
+    freqDist
+        A dict of word:freq pairs.
+    """
+    
+    sentences = str(sentences)
+    sentences = sentences.lower()
+    sentences = sentences.replace('{html}',"") 
     cleanr = re.compile('<.*?>')
-    cleantext = re.sub(cleanr, '', sentence)
-    rem_url=re.sub(r'http\S+', '',cleantext)
+    cleantext = re.sub(cleanr, '', sentences)
+    rem_url = re.sub(r'http\S+', '',cleantext)
     rem_num = re.sub('[0-9]+', '', rem_url)
     tokenizer = RegexpTokenizer(r'\w+')
     tokens = tokenizer.tokenize(rem_num)  
@@ -20,5 +37,5 @@ def preprocess_string(sentence):
     # stem_words=[stemmer.stem(w) for w in filtered_words]
     # lemma_words=[lemmatizer.lemmatize(w) for w in stem_words]
     freqDist = nltk.FreqDist(filtered_words)
-    return {k: v for k, v in sorted(freqDist.items(), key=lambda x: x[1], reverse=True)}
-    # return " ".join(filtered_words)
+    freqDist = {k: v for k, v in sorted(freqDist.items(), key=lambda x: x[1], reverse=True)}
+    return freqDist
