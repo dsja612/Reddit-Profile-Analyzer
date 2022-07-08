@@ -11,25 +11,25 @@ lemmatizer = WordNetLemmatizer()
 stemmer = PorterStemmer() 
 
 def preprocess_string(sentences: list[str]):
-    """ Processes a list of sentences into a dict of word:freq pairs
+    """ Processes a list of sentences into a dict of word:freq pairs.
 
     Parameters
     ----------
-    file_loc : str
-        The file location of the spreadsheet
+    sentences : list[str]
+        List of sentences.
     
     Returns
     -------
     freqDist
         A dict of word:freq pairs.
     """
-    
+
     sentences = str(sentences)
     sentences = sentences.lower()
     sentences = sentences.replace('{html}',"") 
     cleanr = re.compile('<.*?>')
     cleantext = re.sub(cleanr, '', sentences)
-    rem_url = re.sub(r'http\S+', '',cleantext)
+    rem_url = re.sub(r'http\S+', '', cleantext)
     rem_num = re.sub('[0-9]+', '', rem_url)
     tokenizer = RegexpTokenizer(r'\w+')
     tokens = tokenizer.tokenize(rem_num)  
