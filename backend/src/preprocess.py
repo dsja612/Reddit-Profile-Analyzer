@@ -10,7 +10,7 @@ import re
 lemmatizer = WordNetLemmatizer()
 stemmer = PorterStemmer() 
 
-def preprocess_string(sentences: list[str]):
+async def preprocess_string(sentences: list[str]):
     """ Processes a list of sentences into a dict of word:freq pairs.
 
     Parameters
