@@ -1,7 +1,7 @@
 <template>
     <div class="searchBarContainer">
-        <label id="searchBarPrefix" for="username">{{prefix}}</label>
-        <input id="searchBarUsername" type="text" name="username" placeholder="Baorui" size="35">
+        <label id="searchBarPrefix" for="username"><h3>{{prefix}}</h3></label>
+        <input id="searchBarUsername" type="text" name="username" placeholder="Baorui" size="50">
         <Button id="searchBarButton" text="Search"></Button>
     </div>
 </template>
@@ -24,7 +24,7 @@ export default {
 
 <style scoped>
 
-    .searchBarContainer{
+    .searchBarContainer {
 
         display: flex;
         justify-content: center;
@@ -36,11 +36,25 @@ export default {
 
         display: flex;
         border-radius: 5px;
+        align-items: center;
+        justify-content: center;
     }
 
-    #searchBarPrefix{
+    #searchBarPrefix {
 
         background-color: #EF9273;
+        width: 50px;
+        height: 40px;
+    }
+
+    #searchBarButton {
+
+        width: 60px;
+    }
+
+    input {
+
+        text-indent: 10px;
     }
 
 </style>

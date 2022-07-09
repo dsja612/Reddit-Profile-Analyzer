@@ -4,13 +4,14 @@
     <!-- info -->
     <!-- search bar -->
 
-    <header>
-        <i class="fa-brands fa-reddit fa-2x"></i>
-        <h2>{{title}}</h2>
-        <h2>{{info}}</h2>
-        <SearchBar prefix="/u/" username="baorui"/>
-    </header>
-    
+    <div class="headerContainer">
+        <header>
+            <i class="fa-brands fa-reddit fa-6x"></i>
+            <h1>{{title}}</h1>
+            <h1>{{info}}</h1>
+            <SearchBar prefix="/u/" username=""/>
+        </header>
+    </div>
 </template>
 
 <script>
@@ -31,5 +32,15 @@ export default {
 </script>
 
 <style scoped>
-
+    .headerContainer {
+        max-width: 100%;
+        margin: auto;
+        overflow: auto;
+        padding: 15px;
+        padding-bottom: 25px;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 50px;
+        background-color: #FEF9F8;
+    }
 </style>
