@@ -7,8 +7,8 @@ from string import punctuation
 
 from decouple import config
 
-import api
-import preprocess
+from . import api
+from . import preprocess
 
 
 async def main(username: str): 
