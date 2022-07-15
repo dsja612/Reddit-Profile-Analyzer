@@ -17,27 +17,24 @@ export default {
     return {
       data: {},
       showOverview: false,
-      userExists: false,
     }
   },
   methods: {
-    async fetchData(username) {
-
-    },
     async searchUser(username) {
       const res = await fetch('http://localhost:5000/users/' + username)
       if (res.ok) {
         this.data = await res.json()
         this.showOverview = true
-        this.userExists = true
       } else {
-        alert('User does not exist!')
+        this.$swal.fire({ 
+          icon: 'error',
+          title: 'Error!',
+          text: 'This user does not exist!'
+        })
         this.showOverview = false
-        this.userExists = false
       }
-      // this.data.hasProperty('error') ? this.userExists = false : this.userExists = true
     }
-  }
+  },
 }
 
 </script>

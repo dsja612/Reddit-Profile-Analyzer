@@ -25,7 +25,11 @@ export default {
         search(e) {
             e.preventDefault()
             if (!this.username) {
-                alert('Please enter a username')
+                this.$swal.fire({ 
+                    icon: 'error',
+                    title: 'Error!',
+                    text: 'Please enter a username!'
+                })
                 return
             }
             this.$parent.$emit('search', this.username)
@@ -62,6 +66,13 @@ export default {
     #searchBarButton {
 
         width: 60px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+    
+    #searchBarButton:hover {
+        background-color: darkgrey;
     }
 
     input {
