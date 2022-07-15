@@ -1,24 +1,36 @@
 <template>
-    <div class="searchBarContainer">
+    <div class="searchBarContainer" >
         <label id="searchBarPrefix" for="username"><h3>{{prefix}}</h3></label>
-        <input id="searchBarUsername" type="text" name="username" placeholder="Baorui" size="50">
-        <Button id="searchBarButton" text="Search"></Button>
+        <input id="searchBarUsername" type="text" name="username" v-model="username" placeholder="Baorui" size="50">
+        <Button id="searchBarButton" text="Search" @click="search" class="btn btn-block"></Button>
     </div>
 </template>
-
 <script>
 import Button from "./Button"
 
 export default {
     name: "SearchBar",
+    data() {
+        return {
+          username: '',
+        }
+    },
     props: {
         prefix: String,
-        username: String,
     },
     components: {
         Button
+    },
+    methods: {
+        search(e) {
+            e.preventDefault()
+            if (!this.username) {
+                alert('Please enter a username')
+                return
+            }
+            this.$parent.$emit('search', this.username)
+        }
     }
-    
 }
 </script>
 

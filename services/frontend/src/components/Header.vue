@@ -9,7 +9,7 @@
             <i class="fa-brands fa-reddit fa-6x"></i>
             <h1>{{title}}</h1>
             <h1>{{info}}</h1>
-            <SearchBar prefix="/u/" username=""/>
+            <SearchBar prefix="/u/"/>
         </header>
     </div>
 </template>
@@ -18,12 +18,10 @@
 import SearchBar from "./SearchBar"
 
 export default {
-
     name: 'Header',
     props: {
-
         title: String,
-        info: String
+        info: String,
     },
     components: {
         SearchBar

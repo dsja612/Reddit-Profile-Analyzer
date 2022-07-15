@@ -1,6 +1,6 @@
 <template>
-    <Header title="Reddit User Analyser" info="just some info"></Header>
-    <Overview></Overview>
+    <Header title="Reddit User Analyser" info="just some info" @search="searchUser"></Header>
+    <Overview v-if="showOverview"></Overview>
 </template>
 
 <script>
@@ -12,8 +12,34 @@ export default {
   components: {
     Header,
     Overview,
+  },
+  data() {
+    return {
+      data: {},
+      showOverview: false,
+      userExists: false,
+    }
+  },
+  methods: {
+    async fetchData(username) {
+
+    },
+    async searchUser(username) {
+      const res = await fetch('http://localhost:5000/users/' + username)
+      if (res.ok) {
+        this.data = await res.json()
+        this.showOverview = true
+        this.userExists = true
+      } else {
+        alert('User does not exist!')
+        this.showOverview = false
+        this.userExists = false
+      }
+      // this.data.hasProperty('error') ? this.userExists = false : this.userExists = true
+    }
   }
 }
+
 </script>
 
 <style>
