@@ -3,14 +3,14 @@ This script contains methods for getting data through API calls.
 """
 
 import json
-
 import requests
 from fastapi import HTTPException
+import praw
+from decouple import config
 
 
 async def getBasicData(username: str):
-    # Should find a way to hide user agent
-    userData = json.loads(requests.get('https://www.reddit.com/user/{}/about.json'.format(username), headers={'User-agent': 'crawler-api by u/DefinitelyNotABot612'}).content)
+    userData = json.loads(requests.get('https://www.reddit.com/user/{}/about.json'.format(username), headers={'User-agent': config('USER_AGENT')}).content)
     if "error" in userData:
         raise HTTPException(status_code=404, detail='User not found!')
     return userData
