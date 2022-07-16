@@ -11,11 +11,13 @@
             <h1>{{info}}</h1>
             <SearchBar prefix="/u/"/>
         </header>
+        <Loading></Loading>
     </div>
 </template>
 
 <script>
 import SearchBar from "./SearchBar"
+import Loading from "./Loading"
 
 export default {
     name: 'Header',
@@ -24,8 +26,9 @@ export default {
         info: String,
     },
     components: {
-        SearchBar
-    }
+        SearchBar,
+        Loading,
+    },
 }
 </script>
 

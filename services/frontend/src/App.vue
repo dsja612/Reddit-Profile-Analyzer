@@ -4,6 +4,7 @@
 </template>
 
 <script>
+import { store } from './main.js'
 import Header from "./components/Header"
 import Overview from "./components/Overview"
 
@@ -17,10 +18,12 @@ export default {
     return {
       data: {},
       showOverview: false,
+      store,
     }
   },
   methods: {
     async searchUser(username) {
+      store.showLoading = true
       const res = await fetch('http://localhost:5000/users/' + username)
       if (res.ok) {
         this.data = await res.json()
@@ -33,6 +36,7 @@ export default {
         })
         this.showOverview = false
       }
+      store.showLoading = false
     }
   },
 }

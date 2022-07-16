@@ -4,6 +4,12 @@ import App from './App.vue'
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
+import  { reactive } from 'vue'
+
+export const store = reactive({
+    showLoading: false
+})
+
 const app = createApp(App)
 
 app.use(VueSweetalert2);
