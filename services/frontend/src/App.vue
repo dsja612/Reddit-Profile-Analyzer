@@ -1,5 +1,5 @@
 <template>
-    <Header title="Reddit User Analyser" info="just some info" @search="searchUser"></Header>
+    <Header title="Reddit Profile Analyser" info="just some info" @search="searchUser"></Header>
     <Overview v-if="showOverview"></Overview>
 </template>
 
