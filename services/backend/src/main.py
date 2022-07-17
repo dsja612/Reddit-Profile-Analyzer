@@ -5,10 +5,7 @@ from . import query
 
 app = FastAPI()
 
-origins = [
-    "https://reddit-profile-analyzer.herokuapp.com/",
-    "http://reddit-profile-analyzer.herokuapp.com/"
-]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
