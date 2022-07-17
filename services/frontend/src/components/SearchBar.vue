@@ -1,7 +1,7 @@
 <template>
     <div class="searchBarContainer" >
         <label id="searchBarPrefix" for="username"><h3>{{prefix}}</h3></label>
-        <input id="searchBarUsername" type="text" name="username" v-model="username" placeholder="Baorui" size="50">
+        <input id="searchBarUsername" type="text" name="username" v-model="username" placeholder="Username goes here!" size="50">
 
         <Button :disabled="isDisabled" id="searchBarButton" class="btn btn-block" 
         text="Search" @click="search"></Button>
