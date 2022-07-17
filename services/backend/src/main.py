@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import time
 
 from . import query
 
@@ -18,7 +19,17 @@ app.add_middleware(
 
 @app.get("/users/{username}")
 async def main(username: str):
+    start = time.time()
+    print("start")
     try:
-        return await query.main(username)
+        # return await query.main(username)
+        item = await query.main(username)
+        end = time.time()
+        print(end - start)
+        return item
     except Exception as err:
         raise err
+
+@app.get('/')
+async def index():
+    return "Hello!"
