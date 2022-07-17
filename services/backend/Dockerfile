@@ -9,5 +9,6 @@ ENV PYTHONPATH=.
 COPY requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+RUN python -c "import nltk; nltk.download('stopwords')"
 
 COPY src/ .
