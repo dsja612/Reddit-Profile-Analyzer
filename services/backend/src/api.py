@@ -5,7 +5,6 @@ This script contains methods for getting data through API calls.
 import json
 import requests
 from fastapi import HTTPException
-import praw
 from decouple import config
 
 
