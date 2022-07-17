@@ -32,7 +32,7 @@ async def main(username: str):
         payload['num_submissions'] = await api.getNumSubmissions(username, 'submission')
 
         ### PRAW
-        comments = reddit.redditor(username).comments.new(limit=1000)
+        comments = reddit.redditor(username).comments.new(limit=300)
 
         # Get body of comments
         comment_list = []
