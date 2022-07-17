@@ -24,7 +24,7 @@ export default {
   methods: {
     async searchUser(username) {
       store.showLoading = true
-      const res = await fetch('http://localhost:5000/users/' + username)
+      const res = await fetch('https://reddit-crawler-backend.herokuapp.com/users/' + username)
       if (res.ok) {
         this.data = await res.json()
         this.showOverview = true

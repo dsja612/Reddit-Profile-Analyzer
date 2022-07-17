@@ -1,5 +1,11 @@
 .DS_Store
-node_modules
+!node_modules/
+node_modules/*
+!node_modules/vue-spinner/
+node_modules/vue-spinner/*
+!node_modules/vue-spinner/src
+node_modules/vue-spinner/src/*
+!node_modules/vue-spinner/src/PulseLoader.vue
 /dist
 
 
