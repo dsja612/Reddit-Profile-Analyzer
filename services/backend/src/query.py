@@ -20,6 +20,9 @@ async def main(username: str) -> dict:
     
     try:
         ### ASYNCPRAW
+        # Get general information
+        payload['basic_data'] = await api.getBasicData(username)
+        
         start = time.time()
         print("Starting PRAW query for /u/{}".format(username))
         try:
@@ -53,8 +56,6 @@ async def main(username: str) -> dict:
             payload['top_words'] = {}
             payload['top_subreddits'] = {}
         
-        # Get general information
-        payload['basic_data'] = await api.getBasicData(username)
 
         # Get no. of comments
         payload['num_comments'] = await api.getNumSubmissions(username, 'comment')
