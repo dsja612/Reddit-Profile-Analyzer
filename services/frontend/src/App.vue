@@ -7,7 +7,6 @@
 import { store } from './main.js'
 import Header from "./components/Header"
 import Overview from "./components/Overview"
-import moment from 'moment'
 
 export default {
   name: 'App',

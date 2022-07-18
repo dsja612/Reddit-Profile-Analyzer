@@ -8,7 +8,6 @@
       <p>The user has only commented or posted</p>
       <p>in <strong>{{ Object.keys(store.topSubreddits).length }}</strong> different subreddits</p>
     </p>
-    
   </Transition>
 
 </template>
