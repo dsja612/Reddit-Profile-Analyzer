@@ -46,6 +46,9 @@ async def main(username: str) -> dict:
             # Get top subreddits commented on
             top_subreddits = await preprocess.dict_sort(top_subreddits)
             payload['top_subreddits'] = top_subreddits
+        else:
+            payload['top_words'] = {}
+            payload['top_subreddits'] = {}
         
         # Get general information
         payload['basic_data'] = await api.getBasicData(username)
