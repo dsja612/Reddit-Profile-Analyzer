@@ -9,10 +9,10 @@
 
         <div class="userStatisticsContainer">
             <div class="userBasicStatisticsContainer">
-                <StatCircle value="1000" subject="comments" colour="#4affe6"></StatCircle>
-                <StatCircle value="15000" subject="submissions"></StatCircle>
-                <StatCircle value="4650" subject="comment karma"></StatCircle>
-                <StatCircle value="310203" subject="post karma"></StatCircle>
+                <StatCircle :value=store.numComments subject="comments" colour="#4affe6"></StatCircle>
+                <StatCircle :value=store.numSubmissions subject="submissions"></StatCircle>
+                <StatCircle :value=store.commentKarma subject="comment karma"></StatCircle>
+                <StatCircle :value=store.submissionKarma subject="post karma"></StatCircle>
             </div>
 
             <br><hr>
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { store } from '../main.js'
 import UserBasicInfo from "./UserBasicInfo"
 import StatCircle from "./StatCircle"
 import UserTopSubreddits from"./UserTopSubreddits"
@@ -44,6 +45,11 @@ export default {
         UserBasicInfo,
         StatCircle,
         UserTopSubreddits,
+    },
+    data() {
+        return {
+            store,
+        }
     }
 }
 </script>
