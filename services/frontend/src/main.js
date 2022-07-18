@@ -7,12 +7,16 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 import  { reactive } from 'vue'
 
 export const store = reactive({
+    
+    showOverview: false,
     showLoading: false,
     username: String,
     numComments: Number,
     numSubmissions: Number,
     commentKarma: Number,
     submissionKarma: Number,
+    topSubreddits: Object,
+    numSubsToShow: Number,
 })
 
 const app = createApp(App)
