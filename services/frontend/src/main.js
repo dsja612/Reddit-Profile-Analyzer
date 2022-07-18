@@ -11,6 +11,7 @@ export const store = reactive({
     showOverview: false,
     showLoading: false,
     username: String,
+    userDateJoined: String,
     numComments: Number,
     numSubmissions: Number,
     commentKarma: Number,

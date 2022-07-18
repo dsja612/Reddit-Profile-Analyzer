@@ -7,6 +7,7 @@
 import { store } from './main.js'
 import Header from "./components/Header"
 import Overview from "./components/Overview"
+import moment from 'moment'
 
 export default {
   name: 'App',
@@ -41,12 +42,17 @@ export default {
     },
 
     storeData() {
-      store.username = this.username
+      store.username = this.data.basic_data.data.name
+      
+      date = new Date(this.data.basic_data.data.created_utc * 1000)
+      store.userDateJoined = date
+
       store.numComments = this.data.num_comments
       store.numSubmissions = this.data.num_submissions
       store.commentKarma = this.data.basic_data.data.comment_karma
       store.submissionKarma = this.data.basic_data.data.link_karma
       store.topSubreddits = this.data.top_subreddits
+      console.log(this.data)
     }
   },
   
