@@ -8,15 +8,18 @@
         <SubredditContainer subredditName="miserycat" subredditPosts="800"></SubredditContainer>
         <SubredditContainer subredditName="yash" subredditPosts="800"></SubredditContainer>
     </div>
+    <SliderBar></SliderBar>
 </template>
 
 <script>
     import SubredditContainer from "./SubredditContainer"
+    import SliderBar from "./SliderBar"
     export default {
         name: "UserTopSubreddits",
         components: {
             SubredditContainer,
-        }
+            SliderBar,
+        },
     }
 </script>
 

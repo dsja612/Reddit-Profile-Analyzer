@@ -1,10 +1,10 @@
 <template>
-    <pulse-loader :loading=store.showLoading size="20px"></pulse-loader>
+    <PulseLoader :loading=store.showLoading size="20px"></PulseLoader>
 </template>
  
 <script>
     import { store } from '../main.js'
-    import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+    import PulseLoader from './PulseLoader'
     export default {
         name: "Loading",
         components: {
