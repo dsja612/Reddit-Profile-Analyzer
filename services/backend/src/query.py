@@ -22,7 +22,10 @@ async def main(username: str) -> dict:
         ### ASYNCPRAW
         start = time.time()
         print("Starting PRAW query for /u/{}".format(username))
-        user = await reddit.redditor(username)
+        try:
+            user = await reddit.redditor(username)
+        except:
+            raise HTTPException(status_code=404, detail='User not found!')
         comments = user.comments.new(limit=int(config('COMMENTS_LIMIT')))
 
         # Get body of comments
