@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 import time
 
 from . import query
+import nltk
+
+nltk.download('stopwords') # Download required file when server starts
 
 app = FastAPI()
 
@@ -20,12 +23,12 @@ app.add_middleware(
 @app.get("/users/{username}")
 async def main(username: str):
     start = time.time()
-    print("start")
+    print("Received query")
     try:
         # return await query.main(username)
         item = await query.main(username)
         end = time.time()
-        print(end - start)
+        print("Request fulfilled in {} seconds".format(end - start))
         return item
     except Exception as err:
         raise err
