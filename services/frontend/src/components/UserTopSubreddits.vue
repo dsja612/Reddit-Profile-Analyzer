@@ -1,12 +1,15 @@
 <template>
     <h2>Top Subreddits</h2>
     <div class="subredditsContainer">
-        <SubredditContainer subredditName="bao" subredditPosts="50"></SubredditContainer>
-        <SubredditContainer subredditName="ahloi" subredditPosts="800"></SubredditContainer>
-        <SubredditContainer subredditName="roi" subredditPosts="800"></SubredditContainer>
-        <SubredditContainer subredditName="maang" subredditPosts="800"></SubredditContainer>
-        <SubredditContainer subredditName="miserycat" subredditPosts="800"></SubredditContainer>
-        <SubredditContainer subredditName="yash" subredditPosts="800"></SubredditContainer>
+        <template v-for="i in store.numSubsToShow">
+            <SubredditContainer :subredditName=Object.keys(store.topSubreddits)[i-1] 
+                :subredditPosts=Object.values(store.topSubreddits)[i-1]>
+            </SubredditContainer>
+        </template>
+
+        <!-- <SubredditContainer v-for="(posts, name) in store.topSubreddits" :key="name"
+            :subredditName="name" :subredditPosts="posts">
+        </SubredditContainer> -->
     </div>
     <SliderBar></SliderBar>
 </template>
@@ -14,11 +17,18 @@
 <script>
     import SubredditContainer from "./SubredditContainer"
     import SliderBar from "./SliderBar"
+    import { store } from '../main.js'
+
     export default {
         name: "UserTopSubreddits",
         components: {
             SubredditContainer,
             SliderBar,
+        },
+        data() {
+            return {
+                store,
+            }
         },
     }
 </script>

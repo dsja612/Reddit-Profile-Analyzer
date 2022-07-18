@@ -8,7 +8,7 @@
         <header>
             <i class="fa-brands fa-reddit fa-6x"></i>
             <h1>{{title}}</h1>
-            <h1>{{info}}</h1>
+            <!-- <h1>{{info}}</h1> -->
             <SearchBar prefix="/u/"/>
         </header>
         <Loading></Loading>
@@ -43,5 +43,9 @@ export default {
         text-align: center;
         margin-bottom: 50px;
         background-color: #FEF9F8;
+    }
+
+    h1 {
+        margin-bottom: 15px;
     }
 </style>

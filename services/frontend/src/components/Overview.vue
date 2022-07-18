@@ -1,8 +1,7 @@
 <template>
     <div class="overviewContainer">
         <div class="userInfoContainer">
-            <!-- username probably from GET request (?) -->
-            <UserBasicInfo username="ahbao" userDateJoined="maang date"></UserBasicInfo>
+            <UserBasicInfo :username=store.username :userDateJoined=store.userDateJoined></UserBasicInfo>
         </div>
 
         <br><hr>
@@ -18,16 +17,11 @@
             <br><hr>
 
             <div class="userTopSubredditsContainer">
-
-                <!-- add data from request -->
                 <UserTopSubreddits></UserTopSubreddits>
-            
             </div>
 
             <br><hr>
         </div>
-
-        
     </div>
 </template>
 
