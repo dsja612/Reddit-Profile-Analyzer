@@ -22,10 +22,6 @@ async def preprocess_comments(sentences: list[str]):
     freqDist
         A dict of word:freq pairs.
     """
-    try:
-        nltk.data.find('corpus/stopwords')
-    except LookupError:
-        nltk.download('stopwords')
 
     sentences = str(sentences)
     sentences = sentences.lower()
