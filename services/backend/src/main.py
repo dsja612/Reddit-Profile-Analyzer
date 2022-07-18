@@ -5,10 +5,6 @@ import time
 from . import query
 import nltk
 
-# Download required NLTK files when server starts
-nltk.download('stopwords') 
-nltk.download('vader_lexicon')
-
 app = FastAPI()
 
 origins = ["*"]
