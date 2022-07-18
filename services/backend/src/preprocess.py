@@ -35,6 +35,9 @@ async def preprocess_comments(sentences: list[str]):
     filtered_words = [w for w in tokens if len(w) > 2 if not w in nltk.corpus.stopwords.words('english')]
     # stem_words=[stemmer.stem(w) for w in filtered_words]
     # lemma_words=[lemmatizer.lemmatize(w) for w in stem_words]
-    freqDist = nltk.FreqDist(filtered_words)
-    freqDist = {k: v for k, v in sorted(freqDist.items(), key=lambda x: x[1], reverse=True)}
-    return freqDist
+    freq_dist = nltk.FreqDist(filtered_words)
+    freq_dist = await dict_sort(freq_dist)
+    return freq_dist
+
+async def dict_sort(dict):
+    return {k: v for k, v in sorted(dict.items(), key=lambda x: x[1], reverse=True)}

@@ -28,6 +28,7 @@ async def main(username: str) -> dict:
         # Get body of comments
         comment_list = []
         top_subreddits = {}
+
         async for comment in comments:
             comment_list.append(comment.body)
             key = comment.subreddit.display_name
@@ -37,13 +38,15 @@ async def main(username: str) -> dict:
         print("PRAW query finished in {} seconds".format(end - start))
 
         await reddit.close()
-        # Get top subreddits commented on
-        top_subreddits = {k: v for k, v in sorted(top_subreddits.items(), key=lambda x: x[1], reverse=True)}
-        payload['top_subreddits'] = top_subreddits
-
-        ### Other API
-        # Get top words sorted in ascending order
-        payload['top_words'] = await preprocess.preprocess_comments(comment_list)
+        
+        if len(comment_list) != 0:
+            # Get top words sorted in ascending order
+            payload['top_words'] = await preprocess.preprocess_comments(comment_list)
+            
+            # Get top subreddits commented on
+            top_subreddits = await preprocess.dict_sort(top_subreddits)
+            payload['top_subreddits'] = top_subreddits
+        
         # Get general information
         payload['basic_data'] = await api.getBasicData(username)
 
