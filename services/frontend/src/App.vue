@@ -22,6 +22,7 @@ export default {
   },
   methods: {
     async searchUser(username) {
+      store.showOverview = false
       store.showLoading = true
       const res = await fetch('https://reddit-crawler-backend.herokuapp.com/users/' + username)
       if (res.ok) {

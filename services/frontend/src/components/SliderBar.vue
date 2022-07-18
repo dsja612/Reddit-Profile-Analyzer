@@ -5,8 +5,15 @@
   
   <Transition name="bounce">
     <p v-if="showSubLimitWarning">
-      <p>Reached the max number </p>
-      <p>of different subreddits</p>
+      <p>Reached the max number of </p>
+      <p>subreddits ({{ Object.keys(store.topSubreddits).length }}) commented or posted on!</p>
+    </p>
+  </Transition>
+
+  <Transition name="bounce">
+    <p v-if="showNoSubWarning">
+      <p>The user has not posted</p>
+      <p>or commented on any subreddits!</p>
     </p>
   </Transition>
 
@@ -23,6 +30,7 @@
       return {
         store,
         showSubLimitWarning: false,
+        showNoSubWarning: false,
       }
     },
 
@@ -103,9 +111,14 @@
     methods: {
 
       mvMoreThanLimit() {
-
         if (this.modelValue > Object.keys(store.topSubreddits).length) {
+          return true
+        }
+        return false
+      },
 
+      userHasNoSubs() {
+        if (Object.keys(store.topSubreddits).length == 0) {
           return true
         }
         return false
@@ -114,24 +127,33 @@
 
     watch: {
       modelValue(value) {
+        this.showNoSubWarning = false
         store.numSubsToShow = value
-        if (this.mvMoreThanLimit()) {
 
-          //console.log("more than limit")
-          this.showSubLimitWarning = true
+        if (this.userHasNoSubs()) {
+          this.showSubLimitWarning = false
+          this.showNoSubWarning = true
+          store.numSubsToShow = 0
+        }
+        else {
+          if (this.mvMoreThanLimit()) {
 
-          setTimeout(() => {
-                this.showSubLimitWarning = false
-            }, 5000)
-
-          store.numSubsToShow = Object.keys(store.topSubreddits).length
+            //console.log("more than limit")
+            this.showSubLimitWarning = true
+            store.numSubsToShow = Object.keys(store.topSubreddits).length
+          }
+          else{
+            this.showSubLimitWarning = false
+          }
         }
       }
     },
 
     mounted() {
-      if (Object.keys(store.topSubreddits).length == 0) {
+      if (this.userHasNoSubs()) {
         store.numSubsToShow = 0
+        this.showSubLimitWarning = false
+        this.showNoSubWarning = true
       }
       else {
         store.numSubsToShow = Object.keys(store.topSubreddits).length

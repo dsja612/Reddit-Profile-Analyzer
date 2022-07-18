@@ -30,8 +30,6 @@
                 store,
             }
         },
-        methods: {
-        }
     }
 </script>
 
