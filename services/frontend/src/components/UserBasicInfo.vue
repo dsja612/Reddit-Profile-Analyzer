@@ -15,7 +15,7 @@ export default {
     name: "UserBasicInfo",
     props: {
         username: String,
-        userDateJoined: String,
+        userDateJoined: Date,
     }
 }
 </script>

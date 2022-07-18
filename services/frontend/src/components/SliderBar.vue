@@ -1,12 +1,12 @@
 <template>
   <h4>Subreddits</h4>
-  <vue3-slider v-model="modelValue" width="60%" :min=min :max=max :tooltip=tooltip 
-    :tooltipText=tooltipText :color=color :trackColor=trackColor></vue3-slider>
+  <vue3-slider refs="sliderBar" v-model="modelValue" width="60%" :min=min :max=max :tooltip=tooltip 
+    :tooltipText=tooltipText :color=color :trackColor=trackColor :disabled=disabled></vue3-slider>
   
   <Transition name="bounce">
     <p v-if="showSubLimitWarning">
-      <p>The user has only commented or posted</p>
-      <p>in <strong>{{ Object.keys(store.topSubreddits).length }}</strong> different subreddits</p>
+      <p>Reached the max number </p>
+      <p>of different subreddits</p>
     </p>
   </Transition>
 
@@ -53,7 +53,7 @@
       },
       tooltip: {
         type: Boolean,
-        default: true,
+        default: false,
       },
       tooltipText: {
         type: String,
@@ -76,7 +76,7 @@
       },
       modelValue: {
         type: Number,
-        default: 5,
+        default: 10,
       },
       repeat: {
         type: Boolean,
@@ -108,7 +108,6 @@
 
           return true
         }
-
         return false
       }
     },
@@ -116,8 +115,6 @@
     watch: {
       modelValue(value) {
         store.numSubsToShow = value
-        this.$parent.$emit("subValueChanged", value)
-
         if (this.mvMoreThanLimit()) {
 
           //console.log("more than limit")
@@ -132,11 +129,16 @@
       }
     },
 
-    created() {
-      store.numSubsToShow = this.modelValue
-      this.$parent.$emit("subValueChanged", this.modelValue)
+    mounted() {
+      if (Object.keys(store.topSubreddits).length == 0) {
+        store.numSubsToShow = 0
+      }
+      else {
+        store.numSubsToShow = Object.keys(store.topSubreddits).length
+      }
+      
     },
-    }
+  }
 </script>
 
 <style scoped>
