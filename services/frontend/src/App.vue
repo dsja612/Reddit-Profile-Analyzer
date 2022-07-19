@@ -83,7 +83,6 @@ export default {
     border-radius: 50%;
     justify-content: center;
     align-items: center;
-    font-size: 1vw;
   }
 
   hr {
