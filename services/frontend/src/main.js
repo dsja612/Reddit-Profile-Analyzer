@@ -17,7 +17,9 @@ export const store = reactive({
     commentKarma: Number,
     submissionKarma: Number,
     topSubreddits: Object,
+    topWords: Object,
     numSubsToShow: Number,
+    numWordsToShow: Number,
 })
 
 const app = createApp(App)

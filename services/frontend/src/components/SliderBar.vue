@@ -1,7 +1,7 @@
 <template>
-  <h3>Subreddits</h3>
-  <vue3-slider refs="sliderBar" v-model="modelValue" width="60%" :min=min :max=max
-    :color=color :trackColor=trackColor :disabled=disabled :height=height></vue3-slider>
+  <h3>{{ capitaliseFirst(subject) }}</h3>
+  <vue3-slider v-model="modelValue" width="60%" :min=min :max=max
+    :color=color :trackColor=trackColor :height=height></vue3-slider>
 
   <Popper placement="right" :show="showPopper">
     <template #content>
@@ -13,9 +13,9 @@
     </template>
 
     <Transition name="bounce">
-      <div v-if="showSubLimitWarning" @mouseover="showPopper = true" @mouseleave="showPopper = false">
+      <div v-if="showLimitWarning" @mouseover="showPopper = true" @mouseleave="showPopper = false">
         <p>Reached the max number of </p>
-        <p>subreddits ({{ Object.keys(store.topSubreddits).length }}) commented or posted on!</p>
+        <p>{{ subject }} ({{ subjectLength }}) {{ ending }}</p>
       </div>
     </Transition> 
   </Popper>
@@ -40,13 +40,26 @@
     data() {
       return {
         store,
-        showSubLimitWarning: false,
+        showLimitWarning: false,
         showNoSubWarning: false,
         showPopper: false,
       }
     },
 
     props: {
+      subject: {
+        type: String,
+      },
+      storeLength: {
+        type: Number,
+      },
+      ending: {
+        type: String,
+      },
+      subjectLength: {
+        type: Number,
+      },
+
       height: {
         type: Number,
         default: 15,
@@ -67,29 +80,6 @@
         type: Number,
         default: 1,
       },
-      step: {
-        type: Number,
-        default: 1,
-      },
-      tooltip: {
-        type: Boolean,
-        default: false,
-      },
-      tooltipText: {
-        type: String,
-      },
-      tooltipColor: {
-        type: String,
-        default: "#FFFFFF",
-      },
-      tooltipTextColor: {
-        type: String,
-        default: "#000000",
-      },
-      alwaysShowTooltip: {
-        type: Boolean,
-        default: false,
-      },
       orientation: {
         type: String,
         default: "horizontal",
@@ -97,22 +87,6 @@
       modelValue: {
         type: Number,
         default: 10,
-      },
-      repeat: {
-        type: Boolean,
-        default: false,
-      },
-      sticky: {
-        type: Boolean,
-        default: false,
-      },
-      flip: {
-        type: Boolean,
-        default: false,
-      },
-      disabled: {
-        type: Boolean,
-        default: false,
       },
     },
 
@@ -122,41 +96,80 @@
     },
 
     methods: {
-
       mvMoreThanLimit() {
-        if (this.modelValue > Object.keys(store.topSubreddits).length) {
+        if (this.modelValue > this.getSubjectLength(this.subject)) {
           return true
         }
         return false
       },
 
       userHasNoSubs() {
-        if (Object.keys(store.topSubreddits).length == 0) {
+        if (this.getSubjectLength(this.subject) == 0) {
           return true
         }
         return false
+      },
+
+      capitaliseFirst(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      },
+
+      // method in sliderbar to modify subs/words to show 
+      // arguments: string, either sub or word
+
+      setSubjectToShow(string, value) {
+
+        if (string == "subreddits") {
+          store.numSubsToShow = value
+        }
+
+        else if (string == "words") {
+          store.numWordsToShow = value
+        }
+      },
+
+      getCurrentSubjectToShow() {
+
+        if (this.subject == "subreddits") {
+          return store.numSubsToShow
+        }
+        
+        else if (this.subject == "words") {
+          return store.numWordsToShow
+        }
+      },
+
+      getSubjectLength(string) {
+
+        if (string == "subreddits") {
+          return Object.keys(store.topSubreddits).length
+        }
+
+        else if (string == "words") {
+          return Object.keys(store.topWords).length
+        }
       }
     },
 
     watch: {
       modelValue(value) {
         this.showNoSubWarning = false
-        store.numSubsToShow = value
+        this.setSubjectToShow(this.subject, value)
 
         if (this.userHasNoSubs()) {
-          this.showSubLimitWarning = false
+          this.showLimitWarning = false
           this.showNoSubWarning = true
-          store.numSubsToShow = 0
+          this.setSubjectToShow(this.subject, 0)
         }
         else {
           if (this.mvMoreThanLimit()) {
 
             //console.log("more than limit")
-            this.showSubLimitWarning = true
-            store.numSubsToShow = Object.keys(store.topSubreddits).length
+            this.showLimitWarning = true
+            this.setSubjectToShow(this.subject, this.getSubjectLength(this.subject))
           }
           else{
-            this.showSubLimitWarning = false
+            this.showLimitWarning = false
           }
         }
       }
@@ -164,14 +177,18 @@
 
     mounted() {
       if (this.userHasNoSubs()) {
-        store.numSubsToShow = 0
-        this.showSubLimitWarning = false
+        this.setSubjectToShow(this.subject, 0)
+        this.showLimitWarning = false
         this.showNoSubWarning = true
       }
       else {
-        store.numSubsToShow = Object.keys(store.topSubreddits).length
-      }
-      
+        if (this.subject == "subreddits"){
+          this.setSubjectToShow(this.subject, Math.ceil(this.getSubjectLength(this.subject) * 20/100))
+        }
+        else if (this.subject == "words"){
+          this.setSubjectToShow(this.subject, Math.ceil(this.getSubjectLength(this.subject) * 1/100))
+        }
+      }   
     },
   }
 </script>

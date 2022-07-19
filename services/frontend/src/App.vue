@@ -49,6 +49,7 @@ export default {
       store.commentKarma = this.data.basic_data.data.comment_karma
       store.submissionKarma = this.data.basic_data.data.link_karma
       store.topSubreddits = this.data.top_subreddits
+      store.topWords = this.data.top_words
       console.log(this.data)
     }
   },

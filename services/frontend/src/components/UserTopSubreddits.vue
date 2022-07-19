@@ -6,15 +6,11 @@
                 :subredditPosts=Object.values(store.topSubreddits)[i-1]>
             </SubredditContainer>
         </template>
-
-        <!-- <SubredditContainer v-for="(posts, name) in store.topSubreddits" :key="name"
-            :subredditName="name" :subredditPosts="posts">
-        </SubredditContainer> -->
     </div>
-    <SliderBar></SliderBar>
+    <SliderBar subject="subreddits" ending="commented or posted on!" :subjectLength=Object.keys(store.topSubreddits).length></SliderBar>
 </template>
 
-<script>
+<script scoped>
     import SubredditContainer from "./SubredditContainer"
     import SliderBar from "./SliderBar"
     import { store } from '../main.js'
@@ -36,7 +32,7 @@
 <style scoped>
     .subredditsContainer {
         display: flex;
-        width: 70%;
+        width: 80%;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;

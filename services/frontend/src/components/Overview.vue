@@ -21,6 +21,13 @@
             </div>
 
             <br><hr>
+
+            <div class="userTopWordsContainer">
+                <UserTopWords></UserTopWords>
+            </div>
+
+            <br><hr>
+
         </div>
     </div>
 </template>
@@ -30,6 +37,8 @@ import { store } from '../main.js'
 import UserBasicInfo from "./UserBasicInfo"
 import StatCircle from "./StatCircle"
 import UserTopSubreddits from"./UserTopSubreddits"
+import UserTopWords from "./UserTopWords"
+
 export default {
     name: "Overview",
     props: {
@@ -39,6 +48,7 @@ export default {
         UserBasicInfo,
         StatCircle,
         UserTopSubreddits,
+        UserTopWords,
     },
     data() {
         return {
@@ -60,20 +70,20 @@ export default {
         text-align: center;
         background-color: #edddda;
     }
-    .userBasicStatisticsContainer {
+
+    .userBasicStatisticsContainer, .userTopSubredditsContainer, .userTopWordsContainer
+    {
         display: flex;
         justify-content: center;
         align-items: center;
         margin-top: 30px;
+    }   
+    .userBasicStatisticsContainer {
         gap: 50px;
     }
 
-    .userTopSubredditsContainer {
-        display: flex;
+    .userTopSubredditsContainer, .userTopWordsContainer {
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 30px;
         gap: 20px;
     }
 </style>
