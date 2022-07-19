@@ -5,7 +5,6 @@
 
         <Button :disabled="isDisabled" id="searchBarButton" class="btn btn-block" 
         text="Search" @click="search"></Button>
-
     </div>
 </template>
 <script>

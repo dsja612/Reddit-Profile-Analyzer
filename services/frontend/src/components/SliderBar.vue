@@ -1,7 +1,7 @@
 <template>
-  <h4>Subreddits</h4>
+  <h3>Subreddits</h3>
   <vue3-slider refs="sliderBar" v-model="modelValue" width="60%" :min=min :max=max
-    :color=color :trackColor=trackColor :disabled=disabled></vue3-slider>
+    :color=color :trackColor=trackColor :disabled=disabled :height=height></vue3-slider>
 
   <Popper placement="right" :show="showPopper">
     <template #content>
@@ -49,7 +49,7 @@
     props: {
       height: {
         type: Number,
-        default: 6,
+        default: 15,
       },
       color: {
         type: String,
@@ -177,8 +177,8 @@
 </script>
 
 <style scoped>
-  h4 {
-    margin-top: 10px;
+  h3 {
+    margin-top: 15px;
     margin-bottom: -20px;
   }
   .bounce-enter-active {
@@ -210,7 +210,6 @@
     }
 
     #innerPopperPadding {
-
       padding: 5px;
     }
 </style>
