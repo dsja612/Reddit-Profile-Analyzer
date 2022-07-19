@@ -34,9 +34,6 @@ export default {
 
 <style scoped>
     .headerContainer {
-        max-width: 100%;
-        margin: auto;
-        overflow: auto;
         padding: 15px;
         padding-bottom: 25px;
         border-radius: 5px;

@@ -1,14 +1,24 @@
 <template>
   <h4>Subreddits</h4>
-  <vue3-slider refs="sliderBar" v-model="modelValue" width="60%" :min=min :max=max :tooltip=tooltip 
-    :tooltipText=tooltipText :color=color :trackColor=trackColor :disabled=disabled></vue3-slider>
-  
-  <Transition name="bounce">
-    <p v-if="showSubLimitWarning">
-      <p>Reached the max number of </p>
-      <p>subreddits ({{ Object.keys(store.topSubreddits).length }}) commented or posted on!</p>
-    </p>
-  </Transition>
+  <vue3-slider refs="sliderBar" v-model="modelValue" width="60%" :min=min :max=max
+    :color=color :trackColor=trackColor :disabled=disabled></vue3-slider>
+
+  <Popper placement="right" :show="showPopper">
+    <template #content>
+      <div id="innerPopperPadding">
+        <h5>Data shown is reflected</h5>
+        <h5>by the last 300 posts and</h5>
+        <h5>comments made by the user</h5>
+      </div>
+    </template>
+
+    <Transition name="bounce">
+      <div v-if="showSubLimitWarning" @mouseover="showPopper = true" @mouseleave="showPopper = false">
+        <p>Reached the max number of </p>
+        <p>subreddits ({{ Object.keys(store.topSubreddits).length }}) commented or posted on!</p>
+      </div>
+    </Transition> 
+  </Popper>
 
   <Transition name="bounce">
     <p v-if="showNoSubWarning">
@@ -22,6 +32,7 @@
 <script>
   import slider from "vue3-slider"
   import { store } from '../main.js'
+  import Popper from 'vue3-popper'
 
   export default {
     name: "SliderBar",
@@ -31,6 +42,7 @@
         store,
         showSubLimitWarning: false,
         showNoSubWarning: false,
+        showPopper: false,
       }
     },
 
@@ -106,6 +118,7 @@
 
     components: {
       "vue3-slider": slider,
+      Popper,
     },
 
     methods: {
@@ -168,17 +181,6 @@
     margin-top: 10px;
     margin-bottom: -20px;
   }
-
-  .v-enter-active,
-  .v-leave-active {
-    transition: opacity 0.5s ease;
-  }
-
-  .v-enter-from,
-  .v-leave-to {
-    opacity: 0;
-  }
-
   .bounce-enter-active {
     animation: bounce-in 0.5s;
   }
@@ -196,4 +198,19 @@
       transform: scale(1);
     }
   }
+</style>
+
+<!-- style for Popper (tooltip popup) -->
+<style>
+  :root {
+      --popper-theme-background-color: #c8c8c8;
+      --popper-theme-border-width: 2px;
+      --popper-theme-border-style: solid;
+      --popper-theme-border-radius: 5px;
+    }
+
+    #innerPopperPadding {
+
+      padding: 5px;
+    }
 </style>

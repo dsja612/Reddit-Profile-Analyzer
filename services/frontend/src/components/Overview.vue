@@ -8,10 +8,10 @@
 
         <div class="userStatisticsContainer">
             <div class="userBasicStatisticsContainer">
-                <StatCircle :value=store.numComments subject="comments" colour="#4affe6"></StatCircle>
-                <StatCircle :value=store.numSubmissions subject="submissions"></StatCircle>
-                <StatCircle :value=store.commentKarma subject="comment karma"></StatCircle>
-                <StatCircle :value=store.submissionKarma subject="post karma"></StatCircle>
+                <StatCircle :value=store.numComments subject="comments" colour="#E3B448"></StatCircle>
+                <StatCircle :value=store.numSubmissions subject="submissions" colour="#CBD18F"></StatCircle>
+                <StatCircle :value=store.commentKarma subject="comment karma" colour="#FFBE7BFF"></StatCircle>
+                <StatCircle :value=store.submissionKarma subject="post karma" colour="#EED971FF"></StatCircle>
             </div>
 
             <br><hr>
@@ -51,12 +51,9 @@ export default {
 <style scoped>
 
     .overviewContainer {
-        /* probably set display to show only when button is clicked and user exists */
-        /* display: none; */
         max-width: 1200px;
         margin: auto;
         margin-bottom: 50px;
-        overflow: auto;
         min-height: 1000px;
         padding: 15px;
         border-radius: 5px;

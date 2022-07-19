@@ -24,11 +24,11 @@ export default {
     async searchUser(username) {
       store.showOverview = false
       store.showLoading = true
+
       const res = await fetch('https://reddit-crawler-backend.herokuapp.com/users/' + username)
       if (res.ok) {
         this.data = await res.json()
         this.storeData()
-
         store.showOverview = true
       } else {
         this.$swal.fire({ 
