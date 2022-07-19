@@ -56,7 +56,6 @@ async def main(username: str) -> dict:
             # Append sentiment to table of comments
             sentiment = await preprocess.sentiment_analyzer(comment.body)
             comment_sentiment.append(sentiment)
-            print(float(sentiment["compound"]) >= 0)
 
             # Get summary of comment sentiment
             if float(sentiment["compound"]) >= 0:
