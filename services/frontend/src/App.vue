@@ -77,12 +77,13 @@ export default {
 
   .circle {   
     display: flex;
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     background-color: #bbb;
     border-radius: 50%;
     justify-content: center;
     align-items: center;
+    font-size: 1vw;
   }
 
   hr {

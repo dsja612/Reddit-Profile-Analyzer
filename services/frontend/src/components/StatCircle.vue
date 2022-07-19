@@ -1,9 +1,9 @@
 <template>
     <div class="wrapper">
-        <div class="circle" :style="{'background-color': colour}">
+        <div class="circle" :style="{'background-color': colour, border: '1px solid'}">
             <h2>{{value}}</h2>
         </div>
-        <div>{{subject}}</div>
+        <h3>{{subject}}</h3>
     </div>
     
 </template>
