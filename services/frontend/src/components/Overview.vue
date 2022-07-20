@@ -28,6 +28,12 @@
 
             <br><hr>
 
+            <div class="userCommentPolarityContainer">
+                <UserCommentPolarity></UserCommentPolarity>
+            </div>
+
+            <br><hr>
+
         </div>
     </div>
 </template>
@@ -38,6 +44,7 @@ import UserBasicInfo from "./UserBasicInfo"
 import StatCircle from "./StatCircle"
 import UserTopSubreddits from"./UserTopSubreddits"
 import UserTopWords from "./UserTopWords"
+import UserCommentPolarity from "./UserCommentPolarity"
 
 export default {
     name: "Overview",
@@ -49,6 +56,7 @@ export default {
         StatCircle,
         UserTopSubreddits,
         UserTopWords,
+        UserCommentPolarity,
     },
     data() {
         return {

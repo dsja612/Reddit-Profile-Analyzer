@@ -30,6 +30,10 @@
 </script>
 
 <style scoped>
+    h2 {
+        margin-top: -10px;
+        margin-bottom: 15px;
+    }
     .subredditsContainer {
         display: flex;
         width: 80%;

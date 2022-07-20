@@ -20,6 +20,7 @@ export const store = reactive({
     topWords: Object,
     numSubsToShow: Number,
     numWordsToShow: Number,
+    commentPolarity: Object,
 })
 
 const app = createApp(App)

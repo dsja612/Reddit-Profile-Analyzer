@@ -50,7 +50,9 @@ export default {
       store.submissionKarma = this.data.basic_data.data.link_karma
       store.topSubreddits = this.data.top_subreddits
       store.topWords = this.data.top_words
+      store.commentPolarity = this.data.comment_polarity_summary
       console.log(this.data)
+      console.log(Object.values(store.commentPolarity)[0])
     }
   },
   

@@ -7,7 +7,7 @@
             </WordContainer>
         </template>
     </div>
-    <SliderBar subject="words" ending="commented by user!" :storeLength=Object.keys(store.topWords).length></SliderBar>
+    <SliderBar subject="words" ending="commented by user!" :subjectLength=Object.keys(store.topWords).length></SliderBar>
 </template>
 
 <script scoped>
@@ -29,6 +29,10 @@
 </script>
 
 <style scoped>
+    h2 {
+        margin-top: -10px;
+        margin-bottom: 15px;
+    }
     .wordsContainer {
         display: flex;
         width: 80%;

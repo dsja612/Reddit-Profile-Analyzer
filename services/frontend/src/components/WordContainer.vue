@@ -23,7 +23,7 @@
     .wordWrapper {
         padding: 1rem;
         position: relative;
-        background: linear-gradient(to right, red, purple);
+        background: linear-gradient(to right, #8A307F, #6883BC);
         padding: 3px;
     }
     .wordContainer {
