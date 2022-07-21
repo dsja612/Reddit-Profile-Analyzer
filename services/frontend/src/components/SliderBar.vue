@@ -1,6 +1,6 @@
 <template>
   <h3>{{ capitaliseFirst(subject) }}</h3>
-  <vue3-slider v-model="modelValue" width="60%" :min=min :max=max
+  <vue3-slider ref="sliderRef" v-model="modelValue" width="60%" :min=min :max=max
     :color=color :trackColor=trackColor :height=height></vue3-slider>
 
   <Popper placement="right" :show="showPopper">
@@ -14,8 +14,8 @@
 
     <Transition name="bounce">
       <div v-if="showLimitWarning" @mouseover="showPopper = true" @mouseleave="showPopper = false">
-        <p>Reached the max number of </p>
-        <p>{{ subject }} ({{ subjectLength }}) {{ ending }}</p>
+        <p style="text-shadow:1px 1px 10px #c9fffa, 1px 1px 10px #c9fffa, 1px 1px 10px #c9fffa, 1px 1px 10px #c9fffa;">Reached the max number of </p>
+        <p style="text-shadow:1px 1px 10px #c9fffa, 1px 1px 10px #c9fffa, 1px 1px 10px #c9fffa, 1px 1px 10px #c9fffa;">{{ subject }} ({{ subjectLength }}) {{ ending }}</p>
       </div>
     </Transition> 
   </Popper>
@@ -148,6 +148,24 @@
         else if (string == "words") {
           return Object.keys(store.topWords).length
         }
+      },
+
+      goto(refName) {
+        var element = this.$refs[refName]
+        
+        if (this.subject == "subreddits") {
+          window.scrollTo({
+            top: 620,
+            behavior: 'smooth'
+          })
+        }
+        
+        else if (this.subject == "words") {
+          window.scrollTo({
+            top: 940,
+            behavior: 'smooth'
+          })
+        }
       }
     },
 
@@ -172,6 +190,8 @@
             this.showLimitWarning = false
           }
         }
+
+        this.goto('sliderRef')
       }
     },
 
