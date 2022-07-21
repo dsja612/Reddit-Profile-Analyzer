@@ -1,6 +1,6 @@
 <template>
   <h3>{{ capitaliseFirst(subject) }}</h3>
-  <vue3-slider ref="sliderRef" v-model="modelValue" width="60%" :min=min :max=max
+  <vue3-slider v-model="modelValue" width="60%" :min=min :max=max
     :color=color :trackColor=trackColor :height=height></vue3-slider>
 
   <Popper placement="right" :show="showPopper">
@@ -26,7 +26,6 @@
       <p>or commented on any subreddits!</p>
     </p>
   </Transition>
-
 </template>
 
 <script>
@@ -150,22 +149,15 @@
         }
       },
 
-      goto(refName) {
-        var element = this.$refs[refName]
-        
-        if (this.subject == "subreddits") {
-          window.scrollTo({
-            top: 620,
-            behavior: 'smooth'
-          })
+      goto(subject) {
+        if (subject == "subreddits") {
+          var top = this.$parent.$parent.$refs["subBreak"].getBoundingClientRect().top
         }
-        
-        else if (this.subject == "words") {
-          window.scrollTo({
-            top: 940,
-            behavior: 'smooth'
-          })
+        else if (subject == "words") {
+          var top = this.$parent.$parent.$refs["wordBreak"].getBoundingClientRect().top
         }
+
+        window.scrollBy(0, top)
       }
     },
 
@@ -191,7 +183,7 @@
           }
         }
 
-        this.goto('sliderRef')
+        this.goto(this.subject)
       }
     },
 
