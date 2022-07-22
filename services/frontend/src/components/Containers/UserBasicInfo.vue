@@ -1,7 +1,7 @@
 <template>
     <div class="usernameDiv">
         <h1 id="usernamePrefix">Overview for </h1>
-        <h1 id="usernameSuffix">/u/{{username}}</h1>
+        <h1 id="usernameSuffix"> <a :href="'https://www.reddit.com/user/' + username" target="_blank">/u/{{username}} </a></h1>
     </div>
     <div class="usernameDiv">
         <h3 id="userDateJoinedPrefix"> Joined Reddit </h3>
@@ -43,6 +43,9 @@ export default {
 }
 
 #userDateJoinedSuffix {
+    color: #FCA311;
+}
+a {
     color: #FCA311;
 }
 </style>
