@@ -41,7 +41,14 @@ export const store = reactive({
 const app = createApp(App)
 
 app.use(VueSweetalert2);
-app.use(PrimeVue);
+app.use(PrimeVue, {
+    zIndex: {
+        modal: 1100,        //dialog, sidebar
+        overlay: 1000,      //dropdown, overlaypanel
+        menu: 1000,         //overlay menus
+        tooltip: 1100       //tooltip
+    }
+});
 
 app.component(DataTable, 'DataTable')
 app.component(Column, 'Column')

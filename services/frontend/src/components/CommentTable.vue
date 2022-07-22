@@ -5,17 +5,17 @@
             <template #header>
                 Sentiment of Comments
             </template>
-            <Column field="comment" header="Comment" style="min-width:650px" :sortable="true">
+            <Column field="comment" header="Comment" style="min-width:500px" :sortable="true">
                 <template #body="slotProps">
                     <p style="text-align:justify">{{slotProps.data.comment}}</p>
                 </template>            
             </Column>
-            <Column field="compound" header="Sentiment" style="min-width:50px" :sortable="true">
+            <Column field="compound" header="Sentiment" style="min-width:50px; max-width: 150px;" :sortable="true">
                 <template #body="slotProps">
                     <p> {{formatSentimentText(slotProps.data.compound)}} </p>
                 </template>
             </Column>     
-            <Column field="compound" header="Percentage" style="min-width:200px" :sortable="true">
+            <Column field="compound" header="Percentage" style="min-width:150px; max-width: 300px;" :sortable="true">
                 <template #body="slotProps">
                     <p> {{formatPercentage(slotProps.data.compound)}}% </p>
                     <!-- <ProgressBar :value="formatPercentage(slotProps.data.compound)" :showValue="true"></ProgressBar> -->
