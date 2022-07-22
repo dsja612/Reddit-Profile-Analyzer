@@ -8,12 +8,13 @@
 
         <div class="userStatisticsContainer">
             <div class="userBasicStatisticsContainer">
-                <StatCircle :value=store.numComments subject="comments" colour="#E3B448"></StatCircle>
-                <StatCircle :value=store.numSubmissions subject="submissions" colour="#CBD18F"></StatCircle>
-                <StatCircle :value=store.commentKarma subject="comment karma" colour="#FFBE7BFF"></StatCircle>
-                <StatCircle :value=store.submissionKarma subject="post karma" colour="#EED971FF"></StatCircle>
+                <StatCard :value=store.numComments subject="comments" icon="pi-comment"></StatCard>
+                <StatCard :value=store.numSubmissions subject="submissions" icon="pi-upload"></StatCard>
+                <StatCard :value=store.commentKarma subject="comment karma" icon="pi-arrow-up"></StatCard>
+                <StatCard :value=store.submissionKarma subject="post karma" icon="pi-arrow-circle-up"></StatCard>
             </div>
 
+        <div v-if="Object.values(store.commentSentiment).length !== 0">
             <br ref="subBreak"><hr>
 
             <div class="userTopSubredditsContainer">
@@ -44,7 +45,11 @@
             </div>
 
             <br><hr>
-
+        </div>
+        <div class="errorMessageContainer" v-else>
+            <br ref="subBreak"><hr>
+            <h3>There are no comments to analyse (excluding deleted comments).</h3>
+        </div>
         </div>
     </div>
 </template>
@@ -52,7 +57,7 @@
 <script>
 import { store } from '../../main.js'
 import UserBasicInfo from "./UserBasicInfo"
-import StatCircle from "../Cards/StatCircle"
+import StatCard from "../Cards/StatCard"
 import UserTopSubreddits from"./UserTopSubreddits"
 import UserTopWords from "./UserTopWords"
 import UserCommentPolarity from "./UserCommentPolarity"
@@ -67,7 +72,7 @@ export default {
     },
     components: {
         UserBasicInfo,
-        StatCircle,
+        StatCard,
         UserTopSubreddits,
         UserTopWords,
         UserCommentPolarity,
@@ -96,7 +101,7 @@ export default {
     background-color: white;
 }
 
-.userBasicStatisticsContainer, .userTopSubredditsContainer, .userTopWordsContainer, .userSentimentContainer
+.userBasicStatisticsContainer, .userTopSubredditsContainer, .userTopWordsContainer, .userSentimentContainer, .errorMessageContainer
 {
     display: flex;
     justify-content: center;
@@ -111,5 +116,6 @@ export default {
     flex-direction: column;
     gap: 20px;
 }
+
 </style>
 
