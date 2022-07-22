@@ -1,14 +1,13 @@
 <template>
     <div class="searchBarContainer" >
         <label id="searchBarPrefix" for="username"><h3>{{prefix}}</h3></label>
-        <input id="searchBarUsername" type="text" name="username" v-model="username" placeholder="Username goes here!" size="50">
-
-        <Button :disabled="isDisabled" id="searchBarButton" class="btn btn-block" 
-        text="Search" @click="search"></Button>
+        <InputText type="text" name="username" v-model="username" placeholder="Username goes here!" size="50" />
+        <Button :disabled="isDisabled" :label="searchBarButton" icon="pi pi-search" @click="search"></Button>
     </div>
 </template>
 <script>
-import Button from "./Button"
+import Button from 'primevue/button';
+import InputText from 'primevue/inputtext';
 
 export default {
     name: "SearchBar",
@@ -19,10 +18,12 @@ export default {
         }
     },
     props: {
-        prefix: String,
+        prefix: String
     },
     components: {
         Button,
+        InputText,
+        Button
     },
     methods: {
         search(e) {
@@ -53,37 +54,37 @@ export default {
 
 <style scoped>
 
-    .searchBarContainer {
-        display: flex;
-        justify-content: center;
-        vertical-align: baseline;
-        gap: 2px;
-    }
+.searchBarContainer {
+    display: flex;
+    justify-content: center;
+    vertical-align: baseline;
+    gap: 2px;
+}
 
-    .searchBarContainer > * {
-        display: flex;
-        border-radius: 5px;
-        align-items: center;
-        justify-content: center;
-    }
+.searchBarContainer > * {
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+}
 
-    #searchBarPrefix {
-        background-color: #EF9273;
-        width: 50px;
-        height: 40px;
-    }
+#searchBarPrefix {
+    background-color: #FCA311;
+    width: 50px;
+    height: 40px;
+}
 
-    #searchBarButton {
-        width: 60px;
-        height: 40px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-    }
+#searchBarButton {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
 
-    input {
-        text-indent: 6px;
-    }
+input {
+    text-indent: 6px;
+}
 
     
 </style>

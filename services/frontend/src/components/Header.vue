@@ -33,16 +33,15 @@ export default {
 </script>
 
 <style scoped>
-    .headerContainer {
-        padding: 15px;
-        padding-bottom: 25px;
-        border-radius: 5px;
-        text-align: center;
-        margin-bottom: 50px;
-        background-color: #FEF9F8;
-    }
+.headerContainer {
+    padding: 15px;
+    padding-bottom: 25px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 50px;
+}
 
-    h1 {
-        margin-bottom: 15px;
-    }
+h1 {
+    margin-bottom: 15px;
+}
 </style>

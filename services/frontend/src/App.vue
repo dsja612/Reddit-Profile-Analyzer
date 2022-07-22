@@ -72,7 +72,7 @@ export default {
     padding: 0;
   }
 
-  body {
+  /* body {
     font-family: 'Poppins', sans-serif;
     background-color: #b8a4a0;
   }
@@ -95,6 +95,25 @@ export default {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-  }
+  } */
+
+#app {
+  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
+  font-family:"Roboto",sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #022B3A;
+  /* margin-top: 60px; */
+  background-color: #E5E5E5;
+}
+.app-container {
+  text-align: center;
+}
+body #app .p-button {
+  margin-left: .2em;
+}
+form {
+  margin-top: 2em;
+}
 </style>
 

@@ -58,12 +58,12 @@ export default {
 
     },
     components: {
-    UserBasicInfo,
-    StatCircle,
-    UserTopSubreddits,
-    UserTopWords,
-    UserCommentPolarity,
-    CommentTable
+        UserBasicInfo,
+        StatCircle,
+        UserTopSubreddits,
+        UserTopWords,
+        UserCommentPolarity,
+        CommentTable
     },
     data() {
         return {
@@ -75,31 +75,31 @@ export default {
 
 <style scoped>
 
-    .overviewContainer {
-        max-width: 1200px;
-        margin: auto;
-        margin-bottom: 50px;
-        min-height: 1000px;
-        padding: 15px;
-        border-radius: 5px;
-        text-align: center;
-        background-color: #edddda;
-    }
+.overviewContainer {
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 50px;
+    min-height: 1000px;
+    padding: 15px;
+    border-radius: 25px;
+    text-align: center;
+    background-color: white;
+}
 
-    .userBasicStatisticsContainer, .userTopSubredditsContainer, .userTopWordsContainer, .userSentimentContainer
-    {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 30px;
-    }   
-    .userBasicStatisticsContainer {
-        gap: 50px;
-    }
+.userBasicStatisticsContainer, .userTopSubredditsContainer, .userTopWordsContainer, .userSentimentContainer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}   
+.userBasicStatisticsContainer {
+    gap: 50px;
+}
 
-    .userTopSubredditsContainer, .userTopWordsContainer {
-        flex-direction: column;
-        gap: 20px;
-    }
+.userTopSubredditsContainer, .userTopWordsContainer {
+    flex-direction: column;
+    gap: 20px;
+}
 </style>
 
