@@ -4,8 +4,8 @@
         <h1 id="usernameSuffix">/u/{{username}}</h1>
     </div>
     <div class="usernameDiv">
-        <h3 id="userDateJoinedPrefix">Joined Reddit on </h3>
-        <h3 id="userDateJoinedSuffix">{{userDateJoined}}</h3>
+        <h3 id="userDateJoinedPrefix">Joined Reddit </h3>
+        <h3 id="userDateJoinedSuffix">{{getAge(userDateJoined)}} years ago on {{formatDateString(userDateJoined)}}.</h3>
     </div>
     
 </template>
@@ -16,21 +16,30 @@ export default {
     props: {
         username: String,
         userDateJoined: Date,
+    },
+    methods: {
+        formatDateString(date) {
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+            return date.toLocaleDateString("en-US", options)
+        },
+        getAge(date) {
+            var ageDate = new Date(Date.now() - date)
+            return Math.abs(ageDate.getUTCFullYear() - 1970)
+        }
     }
 }
 </script>
 
 <style>
-    .usernameDiv > * {
-        display: inline;
-    }
+.usernameDiv > * {
+    display: inline;
+}
 
-    #usernameSuffix {
-        color: teal;
-    }
+#usernameSuffix {
+    color: #DDA15E;
+}
 
-    #userDateJoinedSuffix {
-        color: purple;
-    }
-
+#userDateJoinedSuffix {
+    color: #DDA15E;
+}
 </style>
