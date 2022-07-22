@@ -157,7 +157,10 @@
           var top = this.$parent.$parent.$refs["wordBreak"].getBoundingClientRect().top
         }
 
-        window.scrollBy(0, top)
+        window.scrollBy({
+          top: top,
+          behavior: "smooth"
+        })
       }
     },
 
