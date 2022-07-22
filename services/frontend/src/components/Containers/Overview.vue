@@ -38,13 +38,8 @@
 
             <br><hr>
 
-            <div class="userCommentFrequencyDaysContainer">
+            <div class="userCommentFrequencyContainer">
                 <UserCommentFrequencyDays></UserCommentFrequencyDays>
-            </div>
-
-            <br><hr>
-
-            <div class="userCommentFrequencyHoursContainer">
                 <UserCommentFrequencyHours></UserCommentFrequencyHours>
             </div>
 
@@ -102,7 +97,7 @@ export default {
     }
 
     .userBasicStatisticsContainer, .userTopSubredditsContainer, .userTopWordsContainer, .userSentimentContainer,
-    .userCommentFrequencyDaysContainer, .userCommentFrequencyHoursContainer
+    .userCommentFrequencyContainer
     {
         display: flex;
         justify-content: center;
@@ -113,7 +108,7 @@ export default {
         gap: 50px;
     }
 
-    .userTopSubredditsContainer, .userTopWordsContainer, .userCommentFrequencyDaysContainer, 
+    .userTopSubredditsContainer, .userTopWordsContainer, .userCommentFrequencyContainer, 
     .userCommentFrequencyHoursContainer {
         flex-direction: column;
         gap: 20px;

@@ -1,6 +1,6 @@
 <template>
     <h2>Comment Frequency</h2>
-    <ApexLineChart :height=350 titleText="Comment Frequency (last 100 comments)" xAxisText="Day" yAxisText="Frequency" :yAxisMin=0 
+    <ApexLineChart :height=350 titleText="Comment Frequency (Days)" xAxisText="Day" yAxisText="Frequency" :yAxisMin=0 
     :yAxisMax=Math.max(...store.commentFreqDays.values)
     :keys=store.commentFreqDays.keys 
     :seriesToBeSent=seriesToBeSent></ApexLineChart>
