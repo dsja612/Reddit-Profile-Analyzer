@@ -32,6 +32,11 @@
                 <UserCommentPolarity></UserCommentPolarity>
             </div>
 
+            <div class="userSentimentContainer">
+                <CommentTable></CommentTable>
+            </div>
+
+
             <br><hr>
 
         </div>
@@ -45,6 +50,7 @@ import StatCircle from "./StatCircle"
 import UserTopSubreddits from"./UserTopSubreddits"
 import UserTopWords from "./UserTopWords"
 import UserCommentPolarity from "./UserCommentPolarity"
+import CommentTable from "./CommentTable"
 
 export default {
     name: "Overview",
@@ -52,11 +58,12 @@ export default {
 
     },
     components: {
-        UserBasicInfo,
-        StatCircle,
-        UserTopSubreddits,
-        UserTopWords,
-        UserCommentPolarity,
+    UserBasicInfo,
+    StatCircle,
+    UserTopSubreddits,
+    UserTopWords,
+    UserCommentPolarity,
+    CommentTable
     },
     data() {
         return {
@@ -79,7 +86,7 @@ export default {
         background-color: #edddda;
     }
 
-    .userBasicStatisticsContainer, .userTopSubredditsContainer, .userTopWordsContainer
+    .userBasicStatisticsContainer, .userTopSubredditsContainer, .userTopWordsContainer, .userSentimentContainer
     {
         display: flex;
         justify-content: center;

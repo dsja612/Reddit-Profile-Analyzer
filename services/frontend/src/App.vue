@@ -51,6 +51,9 @@ export default {
       store.topSubreddits = this.data.top_subreddits
       store.topWords = this.data.top_words
       store.commentPolarity = this.data.comment_polarity_summary
+      store.commentSentiment = this.data.comment_sentiment
+      store.commentFreqHrs = this.data.comment_freq.hrs
+      store.commentFreqDays = this.data.comment_freq.days
       console.log(this.data)
       console.log(Object.values(store.commentPolarity)[0])
     }
