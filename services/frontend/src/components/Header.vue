@@ -6,7 +6,7 @@
 
     <div class="headerContainer">
         <header>
-            <i class="fa-brands fa-reddit fa-6x"></i>
+            <img src="https://www.reshot.com/preview-assets/icons/4TX9GESJRZ/reddit-4TX9GESJRZ.svg" width="100" height="100">
             <h1>{{title}}</h1>
             <!-- <h1>{{info}}</h1> -->
             <SearchBar prefix="/u/"/>
