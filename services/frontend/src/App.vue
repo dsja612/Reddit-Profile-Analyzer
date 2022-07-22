@@ -54,6 +54,7 @@ export default {
       store.commentSentiment = this.data.comment_sentiment
       store.commentFreqHrs = this.data.comment_freq.hrs
       store.commentFreqDays = this.data.comment_freq.days
+      console.log(this.data)
     }
   },
   
