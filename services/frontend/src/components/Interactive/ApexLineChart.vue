@@ -7,7 +7,7 @@
 
 <script>
     import VueApexCharts from "vue3-apexcharts"
-    import { store } from "../main.js"
+    import { store } from "../../main.js"
     export default {
         name: "ApexLineChart",
         props: {

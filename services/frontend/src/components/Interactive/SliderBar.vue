@@ -30,7 +30,7 @@
 
 <script>
   import slider from "vue3-slider"
-  import { store } from '../main.js'
+  import { store } from '../../main.js'
   import Popper from 'vue3-popper'
 
   export default {

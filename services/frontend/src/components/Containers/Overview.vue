@@ -49,13 +49,13 @@
 </template>
 
 <script>
-import { store } from '../main.js'
+import { store } from '../../main.js'
 import UserBasicInfo from "./UserBasicInfo"
-import StatCircle from "./StatCircle"
+import StatCircle from "../Cards/StatCircle"
 import UserTopSubreddits from"./UserTopSubreddits"
 import UserTopWords from "./UserTopWords"
 import UserCommentPolarity from "./UserCommentPolarity"
-import CommentTable from "./CommentTable"
+import CommentTable from "../Interactive/CommentTable"
 import UserCommentFrequency from "./UserCommentFrequency"
 
 export default {

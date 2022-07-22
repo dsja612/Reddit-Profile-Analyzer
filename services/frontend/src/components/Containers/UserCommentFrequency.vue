@@ -7,8 +7,8 @@
 </template>
 
 <script>
-    import { store } from "../main.js"
-    import ApexLineChart from "./ApexLineChart"
+    import { store } from "../../main.js"
+    import ApexLineChart from "../Interactive/ApexLineChart"
     export default {
         name: "UserCommentFrequency",
         components: {

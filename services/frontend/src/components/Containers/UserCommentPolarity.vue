@@ -6,8 +6,8 @@
 </template>
 
 <script scoped>
-    import { store } from '../main.js'
-    import ApexPieChart from './ApexPieChart'
+    import { store } from '../../main.js'
+    import ApexPieChart from '../Interactive/ApexPieChart'
 
     export default {
         name: "UserCommentPolarity",
