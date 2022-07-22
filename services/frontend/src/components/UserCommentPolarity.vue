@@ -1,18 +1,18 @@
 <template>
     <h2>Comment Sentiment</h2>
     <div class="commentPolarityContainer">
-        <ApexCharts></ApexCharts>
+        <ApexPieChart></ApexPieChart>
     </div>
 </template>
 
 <script scoped>
     import { store } from '../main.js'
-    import ApexCharts from './ApexCharts'
+    import ApexPieChart from './ApexPieChart'
 
     export default {
         name: "UserCommentPolarity",
         components: {
-            ApexCharts,
+            ApexPieChart,
         },
         data() {
             return {

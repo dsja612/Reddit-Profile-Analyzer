@@ -36,6 +36,11 @@
                 <CommentTable></CommentTable>
             </div>
 
+            <br><hr>
+
+            <div class="userCommentFrequencyContainer">
+                <UserCommentFrequency></UserCommentFrequency>
+            </div>
 
             <br><hr>
 
@@ -51,6 +56,7 @@ import UserTopSubreddits from"./UserTopSubreddits"
 import UserTopWords from "./UserTopWords"
 import UserCommentPolarity from "./UserCommentPolarity"
 import CommentTable from "./CommentTable"
+import UserCommentFrequency from "./UserCommentFrequency"
 
 export default {
     name: "Overview",
@@ -58,12 +64,13 @@ export default {
 
     },
     components: {
-    UserBasicInfo,
-    StatCircle,
-    UserTopSubreddits,
-    UserTopWords,
-    UserCommentPolarity,
-    CommentTable
+        UserBasicInfo,
+        StatCircle,
+        UserTopSubreddits,
+        UserTopWords,
+        UserCommentPolarity,
+        CommentTable,
+        UserCommentFrequency
     },
     data() {
         return {
@@ -86,7 +93,8 @@ export default {
         background-color: #edddda;
     }
 
-    .userBasicStatisticsContainer, .userTopSubredditsContainer, .userTopWordsContainer, .userSentimentContainer
+    .userBasicStatisticsContainer, .userTopSubredditsContainer, .userTopWordsContainer, .userSentimentContainer,
+    .userCommentFrequencyContainer
     {
         display: flex;
         justify-content: center;
@@ -97,7 +105,7 @@ export default {
         gap: 50px;
     }
 
-    .userTopSubredditsContainer, .userTopWordsContainer {
+    .userTopSubredditsContainer, .userTopWordsContainer, .userCommentFrequencyContainer {
         flex-direction: column;
         gap: 20px;
     }
