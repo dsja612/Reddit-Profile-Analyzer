@@ -17,7 +17,7 @@
             </Column>     
             <Column field="compound" header="Percentage" style="min-width:150px; max-width: 300px;" :sortable="true">
                 <template #body="slotProps">
-                    <ProgressBar :value=formatPercentage(slotProps.data.compound) :showValue="true" style="width: 300px" :color="green"></ProgressBar>
+                    <ProgressBar :value=formatPercentage(slotProps.data.compound) :showValue="true" style="width: 300px"></ProgressBar>
                 </template>
             </Column>  
             <template #footer>
