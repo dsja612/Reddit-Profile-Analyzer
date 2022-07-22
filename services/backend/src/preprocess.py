@@ -37,6 +37,6 @@ async def dict_sort(dict) -> dict:
 async def sentiment_analyzer(comment: str) -> dict:
     """ Conducts sentiment analysis on a given string """
     comment_scores = {}
-    comment_scores['comment'] = comment.replace("\n", "")
+    comment_scores['comment'] = comment.replace("\n", " ")
     comment_scores.update(sid.polarity_scores(comment))
     return comment_scores
