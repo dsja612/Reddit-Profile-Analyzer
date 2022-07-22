@@ -14,13 +14,13 @@
                 <StatCircle :value=store.submissionKarma subject="post karma" colour="#EED971FF"></StatCircle>
             </div>
 
-            <br><hr>
+            <br ref="subBreak"><hr>
 
             <div class="userTopSubredditsContainer">
                 <UserTopSubreddits></UserTopSubreddits>
             </div>
 
-            <br><hr>
+            <br ref="wordBreak"><hr>
 
             <div class="userTopWordsContainer">
                 <UserTopWords></UserTopWords>

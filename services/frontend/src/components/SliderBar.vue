@@ -14,8 +14,8 @@
 
     <Transition name="bounce">
       <div v-if="showLimitWarning" @mouseover="showPopper = true" @mouseleave="showPopper = false">
-        <p>Reached the max number of </p>
-        <p>{{ subject }} ({{ subjectLength }}) {{ ending }}</p>
+        <p style="text-shadow:1px 1px 10px #c9fffa, 1px 1px 10px #c9fffa, 1px 1px 10px #c9fffa, 1px 1px 10px #c9fffa;">Reached the max number of </p>
+        <p style="text-shadow:1px 1px 10px #c9fffa, 1px 1px 10px #c9fffa, 1px 1px 10px #c9fffa, 1px 1px 10px #c9fffa;">{{ subject }} ({{ subjectLength }}) {{ ending }}</p>
       </div>
     </Transition> 
   </Popper>
@@ -26,7 +26,6 @@
       <p>or commented on any subreddits!</p>
     </p>
   </Transition>
-
 </template>
 
 <script>
@@ -148,6 +147,17 @@
         else if (string == "words") {
           return Object.keys(store.topWords).length
         }
+      },
+
+      goto(subject) {
+        if (subject == "subreddits") {
+          var top = this.$parent.$parent.$refs["subBreak"].getBoundingClientRect().top
+        }
+        else if (subject == "words") {
+          var top = this.$parent.$parent.$refs["wordBreak"].getBoundingClientRect().top
+        }
+
+        window.scrollBy(0, top)
       }
     },
 
@@ -172,6 +182,8 @@
             this.showLimitWarning = false
           }
         }
+
+        this.goto(this.subject)
       }
     },
 
