@@ -17,8 +17,7 @@
             </Column>     
             <Column field="compound" header="Percentage" style="min-width:150px; max-width: 300px;" :sortable="true">
                 <template #body="slotProps">
-                    <p> {{formatPercentage(slotProps.data.compound)}}% </p>
-                    <!-- <ProgressBar :value="formatPercentage(slotProps.data.compound)" :showValue="true"></ProgressBar> -->
+                    <ProgressBar :value=formatPercentage(slotProps.data.compound) :showValue="true" style="width: 300px" :color="green"></ProgressBar>
                 </template>
             </Column>  
             <template #footer>
@@ -42,11 +41,11 @@ import Row from 'primevue/row';
 export default {
     name: 'CommentTable',
     components: {
-        DataTable: DataTable,
-        Column: Column,
-        ProgressBar: ProgressBar,
-        Badge: Badge,
-        Row: Row
+        DataTable,
+        Column,
+        ProgressBar,
+        Badge,
+        Row
     },
     data() {
         return {
@@ -85,5 +84,8 @@ h2 {
 p {
     text-align: center;
     justify-content: center;
+}
+ProgressBar {
+    height: 4px;
 }
 </style>
