@@ -12,8 +12,8 @@
 
 <script scoped>
     import SubredditContainer from "./SubredditContainer"
-    import SliderBar from "./SliderBar"
-    import { store } from '../main.js'
+    import SliderBar from "../Interactive/SliderBar"
+    import { store } from '../../main.js'
 
     export default {
         name: "UserTopSubreddits",

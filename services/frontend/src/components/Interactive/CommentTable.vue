@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { store } from "../main.js";
+import { store } from "../../main.js";
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Badge from 'primevue/badge';

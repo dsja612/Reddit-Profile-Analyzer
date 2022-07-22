@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import SearchBar from "./SearchBar"
-import Loading from "./Loading"
+import SearchBar from "../Interactive/SearchBar"
+import Loading from "../Loading/Loading"
 
 export default {
     name: 'Header',

@@ -11,8 +11,8 @@
 </template>
 
 <script scoped>
-    import { store } from "../main.js"
-    import SliderBar from "./SliderBar"
+    import { store } from "../../main.js"
+    import SliderBar from "../Interactive/SliderBar"
     import WordContainer from "./WordContainer"
     export default {
         name: "UserTopWords",

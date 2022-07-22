@@ -5,8 +5,8 @@
 
 <script>
 import { store } from './main.js'
-import Header from "./components/Header"
-import Overview from "./components/Overview"
+import Header from "./components/Containers/Header"
+import Overview from "./components/Containers/Overview"
 
 export default {
   name: 'App',
@@ -55,7 +55,6 @@ export default {
       store.commentFreqHrs = this.data.comment_freq.hrs
       store.commentFreqDays = this.data.comment_freq.days
       console.log(this.data)
-      console.log(Object.values(store.commentPolarity)[0])
     }
   },
   

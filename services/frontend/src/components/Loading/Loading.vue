@@ -4,7 +4,7 @@
 </template>
  
 <script>
-    import { store } from '../main.js'
+    import { store } from '../../main.js'
     import PulseLoader from './PulseLoader'
     export default {
         name: "Loading",
