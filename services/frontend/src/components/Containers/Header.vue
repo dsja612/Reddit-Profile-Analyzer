@@ -8,7 +8,7 @@
         <header>
             <img src="https://www.reshot.com/preview-assets/icons/4TX9GESJRZ/reddit-4TX9GESJRZ.svg" width="100" height="100">
             <h1>{{title}}</h1>
-            <!-- <h1>{{info}}</h1> -->
+            <h4>{{info}}</h4>
             <SearchBar prefix="/u/"/>
         </header>
         <Loading></Loading>
@@ -40,8 +40,14 @@ export default {
     text-align: center;
     margin-bottom: 50px;
 }
-
 h1 {
-    margin-bottom: 15px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-shadow: 2px 4px 30px #14213D;
+}
+h4 {
+    margin-bottom: 30px;
+    text-shadow: 2px 4px 30px #14213D;
+    color: #14213D;
 }
 </style>

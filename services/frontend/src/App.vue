@@ -1,5 +1,8 @@
 <template>
-    <Header title="Reddit Profile Analyser" info="just some info" @search="searchUser"></Header>
+    <Header title="Reddit Profile Analyser" 
+      info="get insights on your reddit profile, activity and favourite subreddits" 
+      @search="searchUser">
+    </Header>
     <Overview v-if="store.showOverview"></Overview>
 </template>
 
