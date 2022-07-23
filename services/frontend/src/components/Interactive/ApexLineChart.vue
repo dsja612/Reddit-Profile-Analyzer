@@ -1,7 +1,8 @@
 <template>
     <div id="chart">
         <apexchart type="line" :options="chartOptions" :series="seriesToBeSent" :xAxisText=xAxisText :yAxisText=yAxisText 
-        :height=height :titleText=titleText :keys=keys :yAxisMin=yAxisMin :yAxisMax=yAxisMax :style="{'width': '950px'}"></apexchart>
+        :height=height :titleText=titleText :keys=keys :yAxisMin=yAxisMin :yAxisMax=yAxisMax :style="{'width': '1050px'}" 
+        :colors=colors></apexchart>
     </div>
 </template>
 
@@ -19,6 +20,7 @@
             yAxisMax: Number,
             keys: Object,
             seriesToBeSent: Object,
+            colors: Array,
         },
         components: {
             apexchart: VueApexCharts,
@@ -43,7 +45,7 @@
                             show: false
                         }
                     },
-                    colors: ['#77B6EA', '#545454'],
+                    colors: this.colors,
                     dataLabels: {
                         enabled: true,
                     },

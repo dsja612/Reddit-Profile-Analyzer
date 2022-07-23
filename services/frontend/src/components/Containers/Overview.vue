@@ -43,8 +43,6 @@
                 <UserCommentFrequencyDays></UserCommentFrequencyDays>
                 <UserCommentFrequencyHours></UserCommentFrequencyHours>
             </div>
-
-            <br><hr>
         </div>
         <div class="errorMessageContainer" v-else>
             <br ref="subBreak"><hr>
@@ -101,7 +99,8 @@ export default {
     background-color: white;
 }
 
-.userBasicStatisticsContainer, .userTopSubredditsContainer, .userTopWordsContainer, .userSentimentContainer, .errorMessageContainer
+.userBasicStatisticsContainer, .userTopSubredditsContainer, .userTopWordsContainer, .userSentimentContainer, 
+.userCommentFrequencyContainer, .errorMessageContainer
 {
     display: flex;
     justify-content: center;
@@ -112,7 +111,7 @@ export default {
     gap: 50px;
 }
 
-.userTopSubredditsContainer, .userTopWordsContainer {
+.userTopSubredditsContainer, .userTopWordsContainer, .userCommentFrequencyContainer {
     flex-direction: column;
     gap: 20px;
 }
