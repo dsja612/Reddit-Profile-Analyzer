@@ -3,7 +3,8 @@
     <ApexLineChart :height=350 titleText="Comment Frequency (Days)" xAxisText="Day" yAxisText="Frequency" :yAxisMin=0 
     :yAxisMax=Math.max(...store.commentFreqDays.values)
     :keys=store.commentFreqDays.keys 
-    :seriesToBeSent=seriesToBeSent></ApexLineChart>
+    :seriesToBeSent=seriesToBeSent 
+    :colors=colorsToBeSent></ApexLineChart>
 </template>
 
 <script>
@@ -22,6 +23,9 @@
                         name: "Frequency",
                         data: store.commentFreqDays.values
                     },
+                ],
+                colorsToBeSent: [
+                    '#B1967C'
                 ],
             }
         }

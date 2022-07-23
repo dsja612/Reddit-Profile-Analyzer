@@ -43,8 +43,6 @@
                 <UserCommentFrequencyDays></UserCommentFrequencyDays>
                 <UserCommentFrequencyHours></UserCommentFrequencyHours>
             </div>
-
-            <br><hr>
         </div>
         <div class="errorMessageContainer" v-else>
             <br ref="subBreak"><hr>
