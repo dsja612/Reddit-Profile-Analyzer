@@ -4,8 +4,6 @@
             <UserBasicInfo :username=store.username :userDateJoined=store.userDateJoined></UserBasicInfo>
         </div>
 
-        <br><hr>
-
         <div class="userStatisticsContainer">
             <div class="userBasicStatisticsContainer">
                 <StatCard :value=store.numComments subject="comments" icon="pi-comment"></StatCard>
@@ -15,6 +13,7 @@
             </div>
 
         <div v-if="Object.values(store.commentSentiment).length !== 0">
+            
             <br ref="subBreak"><hr>
 
             <div class="userTopSubredditsContainer">
@@ -114,6 +113,10 @@ export default {
 .userTopSubredditsContainer, .userTopWordsContainer, .userCommentFrequencyContainer {
     flex-direction: column;
     gap: 20px;
+}
+
+.userInfoContainer {
+    margin: 10px;
 }
 
 </style>

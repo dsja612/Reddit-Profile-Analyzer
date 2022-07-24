@@ -1,6 +1,6 @@
 <template>
     <div class="footerContainer" :style="{ position: changeFooterPosition }" :key="footerKey">
-        <h3><a :href="githubLink" target="_blank">{{githubLink}}</a></h3>
+        <a :href="githubLink" target="_blank"><i class="pi pi-github" style="font-size: 2rem"></i></a>
     </div>
 </template>
 

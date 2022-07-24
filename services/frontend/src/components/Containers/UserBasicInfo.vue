@@ -1,14 +1,22 @@
 <template>
     <div class="usernameDiv">
         <h1 id="usernamePrefix">Overview for </h1>
-        <h1 id="usernameSuffix"> <a :href="'https://www.reddit.com/user/' + username" target="_blank">/u/{{username}} </a></h1>
+        <h1 id="usernameSuffix"> 
+            <a style="text-decoration: none" 
+            :href="'https://www.reddit.com/user/' + username" 
+            target="_blank">
+                /u/{{username}} 
+            </a>
+        </h1>
     </div>
     <div class="usernameDiv">
         <h3 id="userDateJoinedPrefix"> Joined Reddit </h3>
-        <!-- <h3 id="userDateJoinedSuffix">{{getAge(userDateJoined)}} years ago on {{formatDateString(userDateJoined)}}.</h3> -->
         <h3 id="userDateJoinedSuffix">{{getAge(userDateJoined)}} years ago</h3>
         <h3> on </h3>
         <h3 id="userDateJoinedSuffix">{{formatDateString(userDateJoined)}}.</h3>
+    </div>
+    <div class="subTextDiv" style="color: #575757;">
+        <h4>*Overview includes deleted comments & submissions; activity and comment analysis is based on 100 most recent comments</h4>
     </div>
     
 </template>
@@ -35,11 +43,16 @@ export default {
 
 <style>
 .usernameDiv > * {
-    display: inline;
+    display: inline-block;
+    margin: 0 3px 20px;
 }
 
 #usernameSuffix {
     color: #FCA311;
+}
+
+#usernameSuffix:hover {
+    background-color: #E5E5E5;
 }
 
 #userDateJoinedSuffix {

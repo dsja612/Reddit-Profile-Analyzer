@@ -1,5 +1,6 @@
 <template>
     <h2>Top Words</h2>
+    <SliderBar subject="words" ending="commented by user!" :subjectLength=Object.keys(store.topWords).length></SliderBar>
     <div class="wordsContainer">
         <template v-for="i in store.numWordsToShow">
             <WordContainer :word=Object.keys(store.topWords)[i-1] 
@@ -7,7 +8,7 @@
             </WordContainer>
         </template>
     </div>
-    <SliderBar subject="words" ending="commented by user!" :subjectLength=Object.keys(store.topWords).length></SliderBar>
+
 </template>
 
 <script scoped>

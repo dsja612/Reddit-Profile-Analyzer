@@ -68,7 +68,7 @@
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap');
   * {
     box-sizing: border-box;
     margin: 0;
@@ -101,12 +101,11 @@
   } */
 
 #app {
-  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
-  font-family:"Roboto",sans-serif;
+  /* font-family: 'Raleway', Helvetica, Arial, sans-serif; */
+  font-family: 'Helvetica';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #022B3A;
-  /* margin-top: 60px; */
   background-color: #E5E5E5;
   height: 100%;
 }

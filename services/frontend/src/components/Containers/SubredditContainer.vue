@@ -1,39 +1,55 @@
 <template>
     <div class="subredditWrapper">
-        <div class="subredditContainer">
-            <h2>/r/{{subredditName}}</h2>
-            <h2>{{subredditPosts}} posts</h2>
-        </div>
+        <a style="text-decoration: none" 
+            :href="'https://www.reddit.com/r/' + subredditName" 
+            target="_blank">
+            <div class="subredditContainer">
+                <h3>/r/{{subredditName}}</h3>
+                <h4>{{formatText(subredditPosts)}}</h4>
+            </div>
+        </a>
     </div>
 </template>
 
 <script>
-    export default {
-        name: "SubredditContainer",
-        props: {
-            subredditName: String,
-            subredditPosts: Number,
+export default {
+    name: "SubredditContainer",
+    props: {
+        subredditName: String,
+        subredditPosts: Number,
+    },
+    methods: {
+        formatText(value) {
+            return value === 1 ? `${value} post` : `${value} posts`
         }
     }
+}
 </script>
 
 <style scoped>
-
-    .subredditWrapper {
-        padding: 1rem;
-        position: relative;
-        background: linear-gradient(to right, red, purple);
-        padding: 3px;
-    }
-    .subredditContainer {
-        display: flex;
-        background: #edddda;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
+div {
+    border-radius: 15px;
+}
+div:hover {
+    background-color: #FCA311;
+}
+.subredditWrapper {
+    padding: 1rem;
+    position: relative;
+    /* background: linear-gradient(to right, red, purple); */
+    background: #14213D;
+    padding: 3px;
+}
+.subredditContainer {
+    display: flex;
+    background: #17274b;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+}
 </style>
