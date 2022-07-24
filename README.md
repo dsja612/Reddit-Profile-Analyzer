@@ -2,6 +2,8 @@
 
 A website that queries and displays statistics of Reddit users. User data is scraped from Reddit through [PushShift](https://pushshift.io/) (basic user data) and [PRAW](https://praw.readthedocs.io/en/stable/index.html) (comment data).
 
+https://reddit-profile-analyzer.herokuapp.com/
+
 # Tech Stack:
 Backend:
 * [![FastAPI][FastAPI]][Fast-url]
