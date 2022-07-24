@@ -22,14 +22,18 @@
                         type: 'pie',
                     },
                     labels: ['Positive', 'Negative'],
+                    legend: {
+                        show: false,
+                    },
+                    colors: ['#50C878', '#E30B5C'],
                     responsive: [{
                         breakpoint: 480,
                         options: {
                             chart: {
-                            width: 200
+                                width: 200
                             },
                             legend: {
-                            position: 'bottom'
+                                position: 'bottom',
                             }
                         }
                     }]

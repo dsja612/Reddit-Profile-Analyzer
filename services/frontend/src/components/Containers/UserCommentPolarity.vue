@@ -29,7 +29,7 @@
     }
     .commentPolarityContainer {
         display: flex;
-        margin-left: 160px;
+        margin-left: auto;
         margin-right: auto;
         width: 80%;
         flex-direction: row;
