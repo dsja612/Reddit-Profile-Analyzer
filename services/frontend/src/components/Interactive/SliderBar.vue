@@ -7,7 +7,7 @@
     <template #content>
       <div id="innerPopperPadding">
         <h5>Data shown is reflected</h5>
-        <h5>by the last 300 posts and</h5>
+        <h5>by the last 200 posts and</h5>
         <h5>comments made by the user</h5>
       </div>
     </template>

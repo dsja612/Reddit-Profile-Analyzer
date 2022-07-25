@@ -1,7 +1,7 @@
 <template>
     <div v-if="store.showLoading" class="overlay"></div>
     <PulseLoader :loading=store.showLoading size="20px" 
-        :style="{'margin-top': '10px', 'margin-bottom': '-45px'}"></PulseLoader>
+        :style="{'margin-top': '10px', 'margin-bottom': '-40px'}"></PulseLoader>
 </template>
  
 <script>
