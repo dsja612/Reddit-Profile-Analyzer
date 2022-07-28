@@ -1,11 +1,11 @@
 <template>
     
     <div class="CommentTableContainer" background-color="dim">
-        <DataTable :value="comments" :scrollable="true" showGridlines responsiveLayout="scroll" scrollHeight="400px">
+        <DataTable :value="comments" :scrollable="true"  showGridlines responsiveLayout="scroll" scrollHeight="400px">
             <template #header>
                 Sentiment of Comments
             </template>
-            <Column field="comment" header="Comment" style="min-width:450px; max-width: 800px;" :sortable="true">
+            <Column field="comment" header="Comment" style="min-width:400px; max-width: 800px;" :sortable="true">
                 <template #body="slotProps">
                     <p style="text-align:justify">{{slotProps.data.comment}}</p>
                 </template>            
@@ -15,9 +15,11 @@
                     <p> {{formatSentimentText(slotProps.data.compound)}} </p>
                 </template>
             </Column>     
-            <Column field="compound" header="Percentage" style="min-width:100px; max-width: 200px;" :sortable="true">
+            <Column field="compound" :filterMenuStyle="{'width':'14rem'}" header="Percentage" style="min-width:260px; max-width:300px;" :sortable="true">
                 <template #body="slotProps">
-                    <ProgressBar :value=formatPercentage(slotProps.data.compound) :showValue="true" style="width: 200px"></ProgressBar>
+                    <ProgressBar v-if="slotProps.data.compound != '0'" :value=formatPercentage(slotProps.data.compound) style="min-width:260px; max-width:300px;">
+                        <h5>{{formatPercentage(slotProps.data.compound)}}%</h5> 
+                    </ProgressBar>
                 </template>
             </Column>  
             <template #footer>
@@ -86,6 +88,7 @@ p {
     justify-content: center;
 }
 ProgressBar {
-    height: 4px;
+    height: 5px;
 }
+
 </style>
