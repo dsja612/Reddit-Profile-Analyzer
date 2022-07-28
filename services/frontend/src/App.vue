@@ -4,7 +4,7 @@
       @search="searchUser">
     </Header>
     <Overview v-if="store.showOverview"></Overview>
-    <Footer githubLink="https://github.com/dsja612/reddit-crawler-api"></Footer>
+    <Footer v-if="!store.showLoading" githubLink="https://github.com/dsja612/reddit-crawler-api"></Footer>
 </template>
 
 <script>
