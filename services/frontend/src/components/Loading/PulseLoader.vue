@@ -25,14 +25,10 @@ export default {
       type: String,
       default: '15px'
     },
-    margin: {
-      type: String,
-      default: '4px'
-    },
     radius: {
       type: String,
       default: '100%'
-    }
+    },
   },
   data () {
     return {
@@ -40,11 +36,11 @@ export default {
       	backgroundColor: this.color,
       	width: this.size,
         height: this.size,
-      	margin: this.margin,
       	borderRadius: this.radius,
         display: 'inline-block',
         animationName: 'v-pulseStretchDelay',
         animationDuration: '1s',
+        margin: '5px',
         animationIterationCount: 'infinite',
         animationTimingFunction: 'cubic-bezier(.2,.68,.18,1.08)',
         animationFillMode: 'both'
@@ -82,7 +78,6 @@ export default {
     text-align: center;
 }
 */
-
 @-webkit-keyframes v-pulseStretchDelay
 {
     0%,

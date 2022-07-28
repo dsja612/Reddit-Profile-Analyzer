@@ -30,6 +30,7 @@
             </template>               
         </DataTable>
     </div>
+
 </template>
 
 <script>
@@ -68,12 +69,16 @@ export default {
                 : parseFloat(value) > 0
                 ? 'Positive'
                 : 'Negative'
-        }
+        },
     }
 }
 </script>
 
 <style scoped>
+
+.CommentTableContainer {
+    margin-bottom: 10px;
+}
 .table-header {
     display: flex;
     align-items: center;

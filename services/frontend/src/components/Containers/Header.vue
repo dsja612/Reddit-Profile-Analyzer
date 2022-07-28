@@ -35,7 +35,7 @@ export default {
 <style scoped>
 .headerContainer {
     padding: 15px;
-    padding-bottom: 25px;
+    padding-bottom: 50px;
     border-radius: 5px;
     text-align: center;
     margin-bottom: 50px;

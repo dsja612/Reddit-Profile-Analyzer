@@ -47,5 +47,6 @@
     height: 100px;
     bottom: 0;
     left: 0;
+    margin: 0;
 }
 </style>
