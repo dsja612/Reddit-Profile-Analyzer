@@ -16,7 +16,7 @@
         <h3 id="userDateJoinedSuffix">{{formatDateString(userDateJoined)}}.</h3>
     </div>
     <div class="subTextDiv" style="color: #575757;">
-        <h4>*Overview includes deleted comments & submissions; activity and comment analysis is based on 100 most recent comments</h4>
+        <h4>*Overview includes deleted comments & submissions; activity and comment analysis is based on 200 most recent comments</h4>
     </div>
     
 </template>
